@@ -1,8 +1,6 @@
 let testDial = new Dial(true, 200, 50)
 testDial.radius = 25
 testDial.segments = 8
-testDial.minAngle = 135
-testDial.maxAngle = 225
 
 
 let testSlider = new Slider("circle", false, 100, 300)

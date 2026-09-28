@@ -4,17 +4,13 @@
 
 Shows [Modbuttons](https://github.com/yetyeeter1337/Modbuttons), a simple
 and modular button system for p5.js: a custom-drawn button, a stepped
-slider and a stepped dial, with their current state printed on the canvas.
+slider and a stepped, continuous dial, with their current state printed on the canvas.
 Useful for building interfaces that are drawn directly on the canvas
 instead of using HTML elements.
 
 ## Installation
 
 Requirements: a current browser.
-
-1. Open the folder in Visual Studio Code and start Live Server (click
-   **Go Live** in the status bar).
-2. Hover and press the **INITIALIZE** button, drag the slider and the dial.
 
 To use Modbuttons in another project, copy `libraries/p5.modbuttons.js` and
 load it in `index.html` after p5.js and before your sketch:
@@ -28,6 +24,12 @@ online example: [p5.js editor](https://editor.p5js.org/7vector/sketches/7DXk4U_i
 
 Libraries (in `libraries/`): p5.js 1.10.0, p5.modbuttons.js (Modbuttons
 V2 by 7vector), p5.sound 1.0.1 (included, not loaded).
+
+## How to Run
+
+1. Open the folder in Visual Studio Code and start Live Server (click
+   **Go Live** in the status bar).
+2. Hover and press the **INITIALIZE** button, drag the slider and the dial.
 
 ## Coding Help
 
@@ -49,5 +51,6 @@ V2 by 7vector), p5.sound 1.0.1 (included, not loaded).
   through a p5 `post` hook in the library.
 - **`libraries/p5.modbuttons.js`**: besides the classes it offers
   `disableAllButtons()`, `saveButtonStatus()` / `loadButtonStatus()` and
-  `enable()` / `disable()` per widget. `Dial` switches p5 to
-  `angleMode(DEGREES)` globally.
+  `enable()` / `disable()` per widget. `Dial` calculates in
+  `angleMode(DEGREES)` internally and then restores the sketch's own angle
+  mode.

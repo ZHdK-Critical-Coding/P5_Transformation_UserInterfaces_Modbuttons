@@ -147,7 +147,7 @@ function saveButtonStatus(){ // returns an array that can be used in the followi
     let status = []
     for(let i = 0; i < p5.prototype.buttons.length; i++){
         let button = p5.prototype.buttons[i]
-        status[i] = [button.hidden, button.enabled]
+        status[i] = [button.hidden, button.active]
     }
     return status
 }
@@ -360,6 +360,7 @@ class Dial extends Button{
     this.sin = -1
   }
   check(){
+    let prevAngleMode = angleMode() // remember the sketch's angle mode
     angleMode(DEGREES)
     
     if(dist(this.x, this.y, mouseX, mouseY) <= this.radius){
@@ -445,9 +446,10 @@ class Dial extends Button{
     this.sin = sin(this.segments<=0?(this.value + this.originOffset):-(this.minAngle + ((this.maxAngle-this.minAngle)/this.segments)*(this.value%(this.segments + 1))) + 180 - this.originOffset)
     if(this.continuous) this.sin = sin(this.segments<=0?(this.value + this.originOffset):-((360/this.segments)*(this.value%(this.segments))) + this.originOffset)
     
-    angleMode(RADIANS)
+    angleMode(prevAngleMode) // restore the sketch's angle mode
   }
   render(){
+    let prevAngleMode = angleMode() // remember the sketch's angle mode
     angleMode(DEGREES)
     
     fill(this.hover?this.stroke:this.fill)
@@ -461,7 +463,7 @@ class Dial extends Button{
     line(this.x + C*(this.radius/2), this.y + S*(this.radius/2),
         this.x + C*(this.radius), this.y + S*(this.radius))
     
-    angleMode(RADIANS)
+    angleMode(prevAngleMode) // restore the sketch's angle mode
   }
   onValueChange(deltaValue){
     

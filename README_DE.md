@@ -4,18 +4,13 @@
 
 Zeigt [Modbuttons](https://github.com/yetyeeter1337/Modbuttons), ein
 einfaches, modulares Button-System für p5.js: einen selbst gezeichneten
-Knopf, einen gestuften Slider und einen gestuften Drehregler; ihr aktueller
+Knopf, einen gestuften Slider und einen gestuften, endlos drehbaren Drehregler; ihr aktueller
 Zustand wird auf der Zeichenfläche angezeigt. Nützlich für Oberflächen, die
 direkt auf die Zeichenfläche gezeichnet werden statt mit HTML-Elementen.
 
 ## Installation
 
 Voraussetzungen: ein aktueller Browser.
-
-1. Den Ordner in Visual Studio Code öffnen und Live Server starten (in der
-   Statusleiste auf **Go Live** klicken).
-2. Mit der Maus über den Knopf **INITIALIZE** fahren und ihn drücken,
-   Slider und Drehregler ziehen.
 
 Um Modbuttons in einem anderen Projekt zu verwenden,
 `libraries/p5.modbuttons.js` kopieren und in `index.html` nach p5.js und
@@ -30,6 +25,13 @@ Online-Beispiel: [p5.js-Editor](https://editor.p5js.org/7vector/sketches/7DXk4U_
 
 Bibliotheken (in `libraries/`): p5.js 1.10.0, p5.modbuttons.js
 (Modbuttons V2 von 7vector), p5.sound 1.0.1 (vorhanden, nicht geladen).
+
+## Ausführen
+
+1. Den Ordner in Visual Studio Code öffnen und Live Server starten (in der
+   Statusleiste auf **Go Live** klicken).
+2. Mit der Maus über den Knopf **INITIALIZE** fahren und ihn drücken,
+   Slider und Drehregler ziehen.
 
 ## Coding-Hilfe
 
@@ -52,5 +54,6 @@ Bibliotheken (in `libraries/`): p5.js 1.10.0, p5.modbuttons.js
   `draw()` selbst, über einen p5-`post`-Hook in der Bibliothek.
 - **`libraries/p5.modbuttons.js`**: bietet neben den Klassen
   `disableAllButtons()`, `saveButtonStatus()` / `loadButtonStatus()` und
-  pro Element `enable()` / `disable()`. `Dial` stellt p5 global auf
-  `angleMode(DEGREES)` um.
+  pro Element `enable()` / `disable()`. `Dial` rechnet intern mit
+  `angleMode(DEGREES)` und stellt danach den Winkelmodus des Sketches
+  wieder her.
